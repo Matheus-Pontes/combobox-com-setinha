@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Autocomplete com aria-activedescendant</title>
+  <!-- tailwindcss -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- angularjs -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <!-- alpinejs -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script src="app.js"></script>
+
+  <style>
+    .lista li.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body ng-controller="MainCtrl as ctrl" class="mx-auto">
+
+<combo lista="ctrl.epis" label="Epis" selecao="ctrl.epiId"></combo>
+<combo lista="ctrl.especies" label="Especiees" selecao="ctrl.especieId"></combo>
+<combo lista="ctrl.numerosOnus" label="Numeros Onus" selecao="ctrl.numeroOnuId"></combo>
+
+ <p class="mt-2 mx-auto w-72">EPI: {{ ctrl.epiId }} </p>
+ <p class="mt-2 mx-auto w-72">ESPECIEId: {{ ctrl.especieId }} </p>
+ <p class="mt-2 mx-auto w-72">NumeroOnuId: {{ ctrl.numeroOnuId }} </p>
+
+
+  
+</body>
+</html>
+

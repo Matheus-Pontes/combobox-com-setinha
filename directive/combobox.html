@@ -1,0 +1,33 @@
+<div class="w-96 mx-auto mt-6">
+
+    <label>{{ ctrlCombo.label }}</label>
+    <div class="w-full relative meuCombo" x-data="{ open: false }" id="">
+        <button class="block p-2 bg-white border rounded w-full flex items-center justify-between"
+                x-on:click="open=!open; setTimeout(() => $refs.comboboxEstoque_TipoMovimentacao.focus(), 15)" x-on:keydown.enter="open=true" >
+                {{ ctrlCombo.selecaoDescricao }}
+        </button>
+        <div class="w-full border rounded  absolute" x-show="open" x-on:click.away="open=false">
+          
+            <ul class="lista bg-white mt-2 p-0 w-full max-h-64 relative z-10 p-2" id="list">
+                <input type="text" class="w-full p-1 border" x-ref="comboboxEstoque_TipoMovimentacao"
+                ng-model="query" 
+                ng-keydown="ctrlCombo.handleKeydown($event)" 
+                aria-activedescendant="{{ctrlCombo.activeSuggestionId}}" 
+                aria-controls="list" 
+                aria-expanded="true"
+                placeholder="Digite algo..." 
+                aria-autocomplete="list">
+                <li class="p-1 rounded flex items-center relative hover:bg-blue-500 hover:text-white focus" 
+                    ng-repeat="suggestion in ctrlCombo.lista track by $index" 
+                    id="list{{$index}}" 
+                    x-on:click="open=false"
+                    ng-class="{active: ctrlCombo.activeIndex === $index}" 
+                    ng-click="ctrlCombo.selectSuggestion(suggestion)">
+                    {{suggestion.descricao}}
+                </li>
+                
+            </ul>
+        </div>
+    </div>  
+
+</div>
