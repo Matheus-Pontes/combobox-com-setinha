@@ -10,7 +10,8 @@
           
             <ul class="lista bg-white mt-2 p-0 w-full max-h-64 relative z-10 p-2" id="list">
                 <input type="text" class="w-full p-1 border" x-ref="comboboxEstoque_TipoMovimentacao"
-                ng-model="query" 
+                ng-model="ctrlCombo.filtro" 
+                ng-change="ctrlCombo.search(ctrlCombo.filtro)"
                 ng-keydown="ctrlCombo.handleKeydown($event)" 
                 aria-activedescendant="{{ctrlCombo.activeSuggestionId}}" 
                 aria-controls="list" 

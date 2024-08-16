@@ -42,7 +42,12 @@ app.directive('combo', function(){
 
         ctrlCombo.lista = $scope.lista;
         ctrlCombo.label = $scope.label;
+        ctrlCombo.listaAux = [{id: 1, descricao: "teste"}, {id: 2, descricao: "teste 02"}, {id: 3, descricao: "teste 03"}];
         ctrlCombo.activeIndex = -1;
+
+        ctrlCombo.search = function (search) {
+          ctrlCombo.lista = ctrlCombo.listaAux.filter(ele => ele.descricao.toLowerCase().indexOf(search.toLowerCase()) >= 0);
+        }
 
         ctrlCombo.handleKeydown = function(event) {
           switch(event.key) {
@@ -73,7 +78,6 @@ app.directive('combo', function(){
                 break;
           }
           ctrlCombo.activeSuggestionId = ctrlCombo.activeIndex >= 0 ? 'list' + ctrlCombo.activeIndex : null;
-          event.preventDefault();
         };
 
         ctrlCombo.selectSuggestion = function(suggestion) {
