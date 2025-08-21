@@ -3,7 +3,7 @@
     <label>{{ ctrlCombo.label }}</label>
     <div class="w-full relative meuCombo" x-data="{ open: false }" id="">
         <button class="block p-2 bg-white border rounded w-full flex items-center justify-between"
-                x-on:click="open=!open; setTimeout(() => $refs.comboboxEstoque_TipoMovimentacao.focus(), 15)" x-on:keydown.enter="open=true" >
+                x-on:click="open=!open; setTimeout(() => $refs.comboboxEstoque_TipoMovimentacao.focus(), 15)">
                 {{ ctrlCombo.selecaoDescricao }}
         </button>
         <div class="w-full border rounded  absolute" x-show="open" x-on:click.away="open=false">
